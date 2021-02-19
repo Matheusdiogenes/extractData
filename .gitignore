@@ -1,3 +1,4 @@
 node_modules/
+src/insert.js
 games.js
-data.js
+.env
