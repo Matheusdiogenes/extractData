@@ -1,0 +1,18 @@
+{
+  "name": "extractData",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "8.2.0",
+    "pg-format": "1.0.4",
+    "puppeteer": "7.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matheus Diogenes",
+  "license": "ISC"
+}
