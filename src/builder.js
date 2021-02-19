@@ -1,6 +1,6 @@
 const fs = require('fs')
 const format = require('pg-format');
-const games = require('./games.json')
+const games = require('./data.json')
 const league = 'italia'
 
 function matches(games) {

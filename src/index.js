@@ -19,7 +19,7 @@ async function start (){
   const corners = await getText(page, 'section#ended table.live-list-table.diary-table tbody tr td.text-center.blue-color')
   const date = await getText(page, 'section#ended table.live-list-table.diary-table tbody tr td:nth-child(2)')
 
-  fs.writeFile('games.json', JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date}, null, 2), err => {
+  fs.writeFile('data.json', JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date}, null, 2), err => {
     if(err) throw new Error('ERROR')
     console.log('Done');
 
