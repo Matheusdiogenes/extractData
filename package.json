@@ -6,7 +6,8 @@
   "dependencies": {
     "dotenv": "8.2.0",
     "pg-format": "1.0.4",
-    "puppeteer": "7.1.0"
+    "puppeteer": "7.1.0",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {},
   "scripts": {
