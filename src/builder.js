@@ -1,7 +1,9 @@
 const fs = require('fs')
+const readlineSync = require('readline-sync');
 const format = require('pg-format');
-const games = require('./data.json')
-const league = 'italia'
+
+const nameJson = readlineSync.question('Get JSON data/: ') || 'data';
+const games = require(`../data/${nameJson}.json`)
 
 function matches(games) {
   const scores = games.scores.map( (score) => ( score.split(":") ) )
@@ -25,12 +27,12 @@ function matches(games) {
 }
 const data = matches(games)
 
-sql = format(`INSERT INTO ${league}(game_date, team_home, team_away,
+const tableName = readlineSync.question('Name of Table: ') || 'table';
+sql = format(`INSERT INTO ${tableName}(game_date, team_home, team_away,
                 home_ft, away_ft, home_ht, away_ht, league,
                 corners_home_ht, corners_away_ht, corners_home_ft, corners_away_ft) 
               VALUES %L`, data); 
 
-
-fs.writeFileSync(__dirname+'/insert.sql', sql, (err) => {
+fs.writeFileSync(__dirname+`/${nameJson}.sql`, sql, (err) => {
   if (err) throw err;
 })
