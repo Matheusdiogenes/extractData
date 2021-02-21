@@ -4,12 +4,14 @@ const readlineSync = require('readline-sync');
 const fs = require('fs')
 
 const nameJson = readlineSync.question('Generated JSON (data/): ') || 'data';
+const resultsPage = readlineSync.question('Results Page (default = 1):  ') || 1;
 
 async function start (){
   
   async function part(page, numberPart){
-    const part = parseInt(numberPart, 10) || 1
-    await page.select('#panel-1 > #ended #pager_select', `/league/35/p.${part}?type=ended_race`)  
+    const part = numberPart || '1'
+    await page.setViewport({ width: 1366, height: 673 })  
+    await page.select('#panel-1 > #ended #pager_select', `/league/${process.env.LEAGUE_ID}/p.${part}?type=ended_race`)  
     await page.waitForSelector('#panel-1 > #ended #pager_select')
     await page.click('#panel-1 > #ended #pager_select')  
   }
@@ -22,9 +24,7 @@ async function start (){
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(process.env.URL);  
-  await page.setViewport({ width: 1366, height: 673 })  
 
-  const resultsPage = readlineSync.question('Results Page (default = 1):  ') || 1;
   await part(page, resultsPage)
   await page.waitForTimeout(4000)
   
