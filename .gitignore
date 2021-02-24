@@ -1,4 +1,4 @@
 node_modules/
-data/*.json
-src/*.sql
+data/json/*.json
+data/sql/*.sql
 .env
