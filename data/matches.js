@@ -1,6 +1,6 @@
 const readlineSync = require('readline-sync');
 const nameJson = readlineSync.question('VIEW $NAME_JSON.json): ');
-const games = require(`json/${nameJson}.json`)
+const games = require(`./json/${nameJson}.json`)
 const scores = games.scores.map( (score) => ( score.split(":") ) )
 const corners = games.corners.map( (ele) => ele.split(":") )
 const date = games.date.map(element => '20'+element.replace(element.substr(8), '') )
