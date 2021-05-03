@@ -1,10 +1,10 @@
 require('dotenv').config()
 const puppeteer = require('puppeteer');
-const readlineSync = require('readline-sync');
 const fs = require('fs')
 
-const nameJson = readlineSync.question('Generated JSON (data/json/): ') || 'data';
-const session = readlineSync.question('Session: ') || 1;
+const args = process.argv.slice(2)
+const nameJson = args[0]
+const session = args[1]
 
 async function start (){
     
@@ -12,6 +12,7 @@ async function start (){
     await page.setViewport({ width: 1366, height: 10000 })      
     await page.select('select#pager_select', `/team/${process.env.TEAM_ID}/p.${numberPart}?type=ended_race`)      
     await page.waitForSelector('#pager_select') 
+    await page.waitForTimeout(3000);
     
   }
 
@@ -25,7 +26,7 @@ async function start (){
   await page.goto(process.env.URL);  
 
   await part(page, session)
-  // await page.screenshot({path: 'buddy-screenshot.png'})
+  await page.screenshot({path: 'buddy-screenshot.png'})
   
   const home = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-right.BR0 a');  
   const away = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-left a');
