@@ -4,13 +4,15 @@ const readlineSync = require('readline-sync');
 const fs = require('fs')
 
 const nameJson = readlineSync.question('Generated JSON (data/json/): ') || 'data';
+const session = readlineSync.question('Session: ') || 1;
 
 async function start (){
     
-  async function part(page, numberPart=1){    
+  async function part(page, numberPart){    
     await page.setViewport({ width: 1366, height: 10000 })      
-    // await page.select('#panel-1 > #ended #pager_select', `/league/${process.env.LEAGUE_ID}/p.${part}?type=ended_race`)  
-    // await page.click('#panel-1 > #ended #pager_select')  
+    await page.select('select#pager_select', `/team/${process.env.TEAM_ID}/p.${numberPart}?type=ended_race`)      
+    await page.waitForSelector('#pager_select') 
+    
   }
 
   async function getText(page, selector){
@@ -20,10 +22,10 @@ async function start (){
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://www.scorebing.com/team/6267');  
+  await page.goto(process.env.URL);  
 
-  await part(page)
-  await page.screenshot({path: 'buddy-screenshot.png'})
+  await part(page, session)
+  // await page.screenshot({path: 'buddy-screenshot.png'})
   
   const home = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-right.BR0 a');  
   const away = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-left a');

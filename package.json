@@ -9,9 +9,10 @@
     "puppeteer": "7.1.0",
     "readline-sync": "^1.4.10"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "home": "node ./data/cornersHome",
+    "away": "node ./data/cornersAway",
+    "get": "node ./src/index"
   },
   "keywords": [],
   "author": "Matheus Diogenes",
