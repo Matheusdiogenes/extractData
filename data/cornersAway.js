@@ -14,6 +14,16 @@ const lado2 = gamesP1.away.concat(gamesP2.away)
 const scores = scoresP1.concat(scoresP2)
 const corners = cornersP1.concat(cornersP2)
 
+function media(){
+  const corners = cornersP1.concat(cornersP2)
+  let aux = 0
+  corners.forEach( (element, i, arr) => {
+    console.log(element);    
+    
+  })
+}
+media()
+
 const team = process.env.TEAM_AWAY
 // STATS TOTAL 10 primeiros jogos
 let feitos = 0
@@ -98,33 +108,33 @@ lado1.forEach( (element, i) => {
   });
 
   
-  console.log(`Nos últimos ${quantidadeJogos} jogos do ${team}
-  Médias FullTime: 
-    Feitos ${feitos/quantidadeJogos}
-    Sofridos ${sofridos/quantidadeJogos}
-    Total ${(feitos+sofridos)/quantidadeJogos}    
-  Médias HalfTime: 
-    Feitos ${feitosHT/quantidadeJogos}
-    Sofridos ${sofridosHT/quantidadeJogos}
-    Total ${(feitosHT+sofridosHT)/quantidadeJogos}
-  Over: 
-    Over 9 (${over9}/${quantidadeJogos})
-    Over 10 (${over10}/${quantidadeJogos})
-`);
+//   console.log(`Nos últimos ${quantidadeJogos} jogos do ${team}
+//   Médias FullTime: 
+//     Feitos ${feitos/quantidadeJogos}
+//     Sofridos ${sofridos/quantidadeJogos}
+//     Total ${(feitos+sofridos)/quantidadeJogos}    
+//   Médias HalfTime: 
+//     Feitos ${feitosHT/quantidadeJogos}
+//     Sofridos ${sofridosHT/quantidadeJogos}
+//     Total ${(feitosHT+sofridosHT)/quantidadeJogos}
+//   Over: 
+//     Over 9 (${over9}/${quantidadeJogos})
+//     Over 10 (${over10}/${quantidadeJogos})
+// `);
 
-const mediaMando = (feitosMando+sofridosMando)/quantidadeMando
-const mediaMandoHT = (feitosHTmando+sofridosHTmando)/quantidadeMando
+// const mediaMando = (feitosMando+sofridosMando)/quantidadeMando
+// const mediaMandoHT = (feitosHTmando+sofridosHTmando)/quantidadeMando
 
-console.log(`\nNos últimos ${quantidadeMando} fora
-  Médias FullTime: 
-    Feitos: ${(feitosMando/quantidadeMando).toFixed(1)}
-    Sofridos: ${(sofridosMando/quantidadeMando).toFixed(1)}
-    Total ${mediaMando.toFixed(1)}    
-  Médias HalfTime: 
-    Feitos ${(feitosHTmando/quantidadeMando).toFixed(1)}
-    Sofridos ${(sofridosHTmando/quantidadeMando).toFixed(1)}
-    Total ${mediaMandoHT.toFixed(1)}
-  Over: 
-    Over 9 (${over9Mando}/${quantidadeMando})   
-    Over 10 (${over10Mando}/${quantidadeMando})
-`);
+// console.log(`\nNos últimos ${quantidadeMando} fora
+//   Médias FullTime: 
+//     Feitos: ${(feitosMando/quantidadeMando).toFixed(1)}
+//     Sofridos: ${(sofridosMando/quantidadeMando).toFixed(1)}
+//     Total ${mediaMando.toFixed(1)}    
+//   Médias HalfTime: 
+//     Feitos ${(feitosHTmando/quantidadeMando).toFixed(1)}
+//     Sofridos ${(sofridosHTmando/quantidadeMando).toFixed(1)}
+//     Total ${mediaMandoHT.toFixed(1)}
+//   Over: 
+//     Over 9 (${over9Mando}/${quantidadeMando})   
+//     Over 10 (${over10Mando}/${quantidadeMando})
+// `);
