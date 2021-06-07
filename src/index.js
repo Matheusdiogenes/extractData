@@ -26,7 +26,7 @@ async function start (){
   await page.goto(process.env.URL);  
 
   await part(page, session)
-  await page.screenshot({path: 'buddy-screenshot.png'})
+  // await page.screenshot({path: 'buddy-screenshot.png'})
   
   const home = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-right.BR0 a');  
   const away = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-left a');
@@ -34,9 +34,9 @@ async function start (){
   const corners = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-center.blue-color')
   const date = await getText(page, '#ended .live-list-table.diary-table tbody tr td:nth-child(2)')
 
-  fs.writeFile(`${__dirname}/../data/json/${nameJson}.json`, JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date}, null, 2), err => {
-    if(err) throw new Error('Cannot find mudole')
-    console.log(`Generated JSON: ../data/json/${nameJson}.json `);
+  fs.writeFile(`${__dirname}/../data/${nameJson}.json`, JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date}, null, 2), err => {
+    if(err) throw new Error(err)
+    console.log(`Generated JSON: ../data/${nameJson}.json `);
 
   })
 
