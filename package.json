@@ -5,8 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "8.2.0",
+    "fs": "*",
     "pg-format": "1.0.4",
-    "puppeteer": "7.1.0",
+    "puppeteer": "^10.0.0",
     "readline-sync": "^1.4.10"
   },
   "scripts": {
