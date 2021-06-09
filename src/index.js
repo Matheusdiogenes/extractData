@@ -4,9 +4,9 @@ const fs = require('fs')
 
 const args = process.argv.slice(2)
 const nameJson = args[0]
-const session = args[1]
+const amountGame = args[1]
 
-async function start (){
+async function start (session){
     
   async function part(page, numberPart){    
     await page.setViewport({ width: 1366, height: 10000 })      
@@ -33,13 +33,21 @@ async function start (){
   const scores = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-center.red-color')
   const corners = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-center.blue-color')
   const date = await getText(page, '#ended .live-list-table.diary-table tbody tr td:nth-child(2)')
+  const odds = await getText(page, '#ended .live-list-table.diary-table tbody tr td.text-center a[rel]')
 
-  fs.writeFile(`${__dirname}/../data/${nameJson}.json`, JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date}, null, 2), err => {
+  fs.writeFile(`${__dirname}/../data/${nameJson}${session}.json`, JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date, odds: odds}, null, 2), err => {
     if(err) throw new Error(err)
-    console.log(`Generated JSON: ../data/${nameJson}.json `);
+    console.log(`Generated JSON: ../data/${nameJson}${session}.json `);
 
   })
 
   await browser.close();
 }
-start()
+
+async function load(){
+  for (let page = 1; page <= amountGame; page++) {
+    await start(page)
+    // console.log(page);    
+  }
+}
+load()
