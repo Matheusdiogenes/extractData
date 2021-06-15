@@ -1,8 +1,6 @@
 # EXTRACT DATA
 
-Projetinho pessoal feito para extrair dados do site www.scorebing.com. E gerar um arquivo SQL com esses dados para inserir em uma tabela no banco de dados.
-
-A código da TABELA está no arquivo `table.txt`
+Projetinho pessoal feito para extrair dados do site www.scorebing.com. E obter as estatística de um time.
 
 ## Como usar ?
 
@@ -10,8 +8,16 @@ A código da TABELA está no arquivo `table.txt`
 
 > npm install
 
-2. Crie um arquivo .env e coloque as variáveis que estão em .env.exemple
+2. Execute o comando:
 
-3. Execute o arquivo index.js
+> node src/index.js [numeroDeSessões] [nome.Do.Time]
 
-> node src/index.js [Nome_do_Json] [parte]
+O nome do time encontra-se no arquivo `src/referencias.json`
+
+3. Faça o merge dos arquivos gerados
+
+> node src/analise/merge.js [quantidadeDeArquivos] [nome.Do.Time]
+
+4. Obter o prognóstico de cantos execute:
+
+> node src/analise/cantos.js [`nome.Do.Time`] [`LinhaDeCantos`]
