@@ -11,9 +11,9 @@
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-    "home": "node ./data/cornersHome",
-    "away": "node ./data/cornersAway",
-    "get": "node ./src/index"
+    "get": "node src/index",
+    "merge": "node src/analise/merge",
+    "gols": "node src/analise/gols"
   },
   "keywords": [],
   "author": "Matheus Diogenes",
