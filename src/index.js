@@ -1,4 +1,6 @@
 require('dotenv').config()
+process.setMaxListeners(0);
+
 const puppeteer = require('puppeteer');
 const fs = require('fs')
 

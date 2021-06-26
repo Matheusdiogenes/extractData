@@ -34,10 +34,28 @@ function getCantos(){
     jogosCasa, jogosFora,
     cantosCasa, cantosFora
   }
+}
 
+function getCantosLast5(){
+  const jogosCasa5 = home.map( team => team === TEAM).filter(e => e).length
+  const jogosFora5 = home.map( team => team !== TEAM).filter(e => e).length
+  let cantosCasa5 = [0, 0]
+  let cantosFora5 = [0, 0]
+  home.forEach( (e, i) =>{
+    e == TEAM && i < 5 ? cantosCasa5[0]+=cornersFT[i][0] : 0
+    e == TEAM && i < 5 ? cantosCasa5[1]+=cornersFT[i][1] : 0
+    e !== TEAM && i < 5 ? cantosFora5[0]+=cornersFT[i][0] : 0
+    e !== TEAM && i < 5 ? cantosFora5[1]+=cornersFT[i][1] : 0
+  })
+
+  return {
+    jogosCasa5, jogosFora5,
+    cantosCasa5, cantosFora5
+  }
 }
 
 module.exports = {
   TEAM,
-  getCantos
+  getCantos,
+  getCantosLast5
 }
