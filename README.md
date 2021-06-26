@@ -1,29 +1,29 @@
 # EXTRACT DATA
 
-Projetinho pessoal feito para extrair dados do site www.scorebing.com. E obter as estatística de um time.
+Projetinho feito para extrair dados do site www.scorebing.com. E obter as estatística de um time.
 
 ## Como usar ?
 
-1. Instale as dependências necessárias.
+### Linux
 
-> npm install
+1.  Execute o arquivo de configuração
 
-2. Execute o comando:
+> chmod +x config && ./config.sh
 
-> npm run get [numeroDeSessões] [ref]
+2. Execute o comando para buscar os dados:
 
-O nome da referencia é o nome de um dos arquivos que está em `src/referencias/[ref].json`
+> chmod +x search.sh
 
-3. Faça o merge dos arquivos gerados
+> ./search.sh [`Numéro de jogos`] [`Arquivo de referência`]
 
-> npm run merge [quantidadeDeArquivos] [ref]
+[1] O número de jogos dividido por 10 deve ser um número inteiro. 
 
-O nome da referencia é o nome de um dos arquivos que está em `src/referencias/[ref].json`
+Exemplo: Quero buscar 10 jogos.
+10/10 = 1
+1 vai ser o primeiro parâmetro
 
-4. Obter o prognóstico de gols execute:
+[2] O nome da referência é o nome de um dos arquivos que está [aqui][https://github.com/Matheusdiogenes/extractData/tree/main/src/referencias]
 
-> npm run gols [`nome-Do-Time`] [`handicap.initial`]
+3. Obter o prognóstico:
 
-5. Obter o prognóstico de gols execute:
-
-> npm run cantos [`import/nome-Do-Time.json`]
+> chmod +x auto.sh && ./auto.sh
