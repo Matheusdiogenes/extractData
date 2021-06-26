@@ -1,8 +1,12 @@
 {
   "time": {
-    "Sassuolo": {
-      "url": "https://www.scorebing.com/team/169",
-      "time_id": 169
+    "CRB": {
+      "url": "https://www.scorebing.com/team/2640",
+      "time_id": 2640
+    },
+    "Avai": {
+      "url": "https://www.scorebing.com/team/1490",
+      "time_id": 1490
     },
     "Gremio": {
       "url": "https://www.scorebing.com/team/5877",

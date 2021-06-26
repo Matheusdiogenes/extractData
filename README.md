@@ -20,4 +20,8 @@ O nome do time encontra-se no arquivo `src/referencias.json`
 
 4. Obter o prognóstico de gols execute:
 
-> npm run gols [`nome.Do.Time`]
+> npm run gols [`nome.Do.Time`] [`handicap.initial`]
+
+5. Obter o prognóstico de gols execute:
+
+> npm run cantos [`nome.Do.Time`]

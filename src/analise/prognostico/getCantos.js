@@ -4,29 +4,41 @@ const teamName = args[0]
 const data = require(`../../../teamData/${teamName}.json`)
 const TEAM = teamName.replace('.', ' ')
 
+
 const odds = data.odds.map( e => e.split('/').map( e => parseFloat(e)))
 const scores = data.scores.map( e => e.split(':').map( e => parseInt(e)))
 const corners = data.corners.map( e => e.split(":").map( e => parseInt(e)))
 const home = data.home
 const away = data.away
 
-function getCantos(){  
-  
-}
+let scoresFT = []
+let scoresHT = []
+scores.forEach( (e, i) => { i%2 === 0 ? scoresFT.push(e) : scoresHT.push(e) })
 
-function getCantosFavorito(handicap){  
-  
-}
+let cornersFT = []
+let cornersHT = []
+corners.forEach( (e, i) => { i%2 === 0 ? cornersHT.push(e) : cornersFT.push(e) })
 
-function getLinhaCantos(linhaAsiatica){  
-  const linhaCasa = odds.filter( (e, index) => e[2] == linhaAsiatica && home[index] == TEAM).length
-  const linhaFora = odds.filter( (e, index) => e[2] == linhaAsiatica && away[index] == TEAM).length
-  
+function getCantos(){
+  const jogosCasa = home.map( team => team === TEAM).filter(e => e).length
+  const jogosFora = home.map( team => team !== TEAM).filter(e => e).length
+  let cantosCasa = [0, 0]
+  let cantosFora = [0, 0]
+  home.forEach( (e, i) =>{
+    e == TEAM ? cantosCasa[0]+=cornersFT[i][0] : 0
+    e == TEAM ? cantosCasa[1]+=cornersFT[i][1] : 0
+    e !== TEAM ? cantosFora[0]+=cornersFT[i][0] : 0
+    e !== TEAM ? cantosFora[1]+=cornersFT[i][1] : 0
+  })
+
+  return {
+    jogosCasa, jogosFora,
+    cantosCasa, cantosFora
+  }
+
 }
 
 module.exports = {
   TEAM,
-  getCantos,
-  getCantosFavorito, 
-  getLinhaCantos,
+  getCantos
 }

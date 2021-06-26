@@ -13,7 +13,8 @@
   "scripts": {
     "get": "node src/index",
     "merge": "node src/analise/merge",
-    "gols": "node src/analise/gols"
+    "gols": "node src/analise/gols",
+    "cantos": "node src/analise/cantos"
   },
   "keywords": [],
   "author": "Matheus Diogenes",
