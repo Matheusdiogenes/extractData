@@ -22,7 +22,7 @@ Exemplo: Quero buscar 10 jogos.
 10/10 = 1
 1 vai ser o primeiro parâmetro
 
-[2] O nome da referência é o nome de um dos arquivos que está [aqui][https://github.com/Matheusdiogenes/extractData/tree/main/src/referencias]
+[2] O nome da referência é o nome de um dos arquivos que está [aqui](https://github.com/Matheusdiogenes/extractData/tree/main/src/referencias)
 
 3. Obter o prognóstico:
 
