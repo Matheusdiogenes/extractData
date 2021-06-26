@@ -12,7 +12,7 @@
   },
   "scripts": {
     "get": "node src/index",
-    "merge": "node src/analise/merge",
+    "merge": "node src/merge",
     "gols": "node src/analise/gols",
     "cantos": "node src/analise/cantos"
   },

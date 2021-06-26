@@ -1,9 +1,8 @@
 const args = process.argv.slice(2)
 const teamName = args[0]
 
-const data = require(`../../../teamData/${teamName}.json`)
-const TEAM = teamName.replace('.', ' ')
-
+const data = require(`../../../${teamName}`)
+const TEAM = teamName.replace('-', ' ').replace('.json','').replace('import/','')
 
 const odds = data.odds.map( e => e.split('/').map( e => parseFloat(e)))
 const scores = data.scores.map( e => e.split(':').map( e => parseInt(e)))

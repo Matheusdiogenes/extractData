@@ -3,14 +3,14 @@ const prog = require('./prognostico/getCantos')
 
 const args = process.argv.slice(2)
 const teamName = args[0]
-
+const TEAM = teamName.replace('-', ' ').replace('.json','').replace('import/','')
 
 function cantos(){
   const c = prog.getCantos()
   const mediaCasa = c.cantosCasa[0]/c.jogosCasa + c.cantosCasa[1]/c.jogosCasa
   const mediaFora = c.cantosFora[0]/c.jogosFora + c.cantosFora[1]/c.jogosFora
   return (
-  `${teamName}: 
+  `${TEAM}: 
   (CASA) ${c.jogosCasa} jogos | Media: ${mediaCasa.toFixed(1)} | Feitos: ${(c.cantosCasa[0]/c.jogosCasa).toFixed(1)} | Sofridos: ${(c.cantosCasa[1]/c.jogosCasa).toFixed(1)}
   (FORA) ${c.jogosFora} jogos | Media: ${mediaFora.toFixed(1)} | Feitos: ${(c.cantosFora[0]/c.jogosFora).toFixed(1)} | Sofridos: ${(c.cantosFora[1]/c.jogosCasa).toFixed(1)}`
   )
