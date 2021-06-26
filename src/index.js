@@ -12,7 +12,7 @@ async function start (session, teamName, idTeam, url){
     await page.setViewport({ width: 1366, height: 10000 })      
     await page.select('select#pager_select', `/team/${idTeam}/p.${numberPart}?type=ended_race`)      
     await page.waitForSelector('#pager_select') 
-    await page.waitForTimeout(3000);
+    // await page.waitForTimeout(5000);
     
   }
 

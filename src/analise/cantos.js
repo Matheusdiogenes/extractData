@@ -18,7 +18,7 @@ function cantos(){
 
 const canto = cantos()
 
-fs.appendFileSync(`analise.txt`, `${canto}\n` , function (err) {
+fs.appendFileSync(`analiseCantos.txt`, `${canto}\n` , function (err) {
   if (err) return console.log(err);
-  console.log('data > analise.txt');
+  console.log('data > analiseCantos.txt');
 });

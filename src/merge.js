@@ -25,12 +25,11 @@ function merge(){
     const scores = getTeam( quantidade, nomeJson, 'scores')
     const corners = getTeam( quantidade, nomeJson, 'corners')
     const date = getTeam( quantidade, nomeJson, 'date')
-    const odds = getTeam( quantidade, nomeJson, 'odds')
+    const odds = getTeam( quantidade, nomeJson, 'odds')    
     fs.writeFile(`${__dirname}/../import/${nomeJson}.json`, JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date, odds: odds}, null, 2), err => {
       if(err) throw new Error(err)
       console.log(`Generated JSON: import/${nomeJson}.json`);    
-    })
-    console.log(`${e[0]} ${e[1].url} ${e[1].time_id}`);
+    })    
   })
 }
 merge()
