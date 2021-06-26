@@ -3,3 +3,4 @@ data/json/*.json
 data/*.json
 .env
 teamData/*.json
+analise.txt
