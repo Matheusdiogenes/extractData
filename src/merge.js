@@ -17,7 +17,7 @@ function getTeam(quantidade, nomeJson, chave){
 
 function merge(){
   const ref = require(`./referencias/${referencias}.json`)
-  const times = Array.from(Object.entries(ref.time))
+  const times = Array.from(Object.entries(ref.team))
   times.forEach(e => {
     const nomeJson = e[0] 
     const home = getTeam( quantidade, nomeJson, 'home')

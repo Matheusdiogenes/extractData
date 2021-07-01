@@ -7,7 +7,7 @@
     "dotenv": "8.2.0",
     "fs": "*",
     "pg-format": "1.0.4",
-    "puppeteer": "^10.0.0",
+    "puppeteer": "^10.1.0",
     "readline-sync": "^1.4.10"
   },
   "scripts": {
