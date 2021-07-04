@@ -10,22 +10,20 @@ Projetinho feito para extrair dados do site www.scorebing.com. E obter as estat�
 
 > chmod +x config.sh && ./config.sh
 
-2. Execute o comando para buscar os dados:
+2. .env:
 
-> chmod +x search.sh
+> Crie um arquivo .env e preencha-o conforme o modelo `.env.exemple`
 
-> ./search.sh [`Numéro de jogos`] [`Arquivo de referência`]
+3. Obter os dados de um time:
 
-[1] O número de jogos dividido por 10 deve ser um número inteiro. 
+> npm run get
 
-Exemplo: Quero buscar 10 jogos.
+Se foi gerado mais de um arquivo, faça o merge desses arquivos com o comando:
 
-10/10 = 1
+> npm run merge `NomeDoArquivo`
 
-1 vai ser o primeiro parâmetro
+##### Dúvidas? 
 
-[2] O nome da referência é o nome de um dos arquivos que está [aqui](https://github.com/Matheusdiogenes/extractData/tree/main/src/referencias)
+Email: matheusdiogenes98@gmail.com
 
-3. Obter o prognóstico:
-
-> chmod +x auto.sh && ./auto.sh
+Instagram: matheusdiogenes__
