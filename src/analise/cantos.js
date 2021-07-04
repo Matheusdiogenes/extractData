@@ -3,7 +3,7 @@ const prog = require('./prognostico/getCantos')
 
 const args = process.argv.slice(2)
 const teamName = args[0]
-const TEAM = teamName.replace('-', ' ').replace('.json','').replace('import/','')
+const TEAM = teamName.replace('.', ' ')
 
 function cantos(){
   const c = prog.getCantos()
@@ -17,7 +17,7 @@ function cantos(){
   (CASA) ${c.jogosCasa} jogos | Media: ${mediaCasa.toFixed(1)} | Feitos: ${(c.cantosCasa[0]/c.jogosCasa).toFixed(1)} | Sofridos: ${(c.cantosCasa[1]/c.jogosCasa).toFixed(1)}
   (CASA) ${c5.jogosCasa5} jogos | Media: ${mediaCasa5.toFixed(1)} | Feitos: ${(c5.cantosCasa5[0]/c5.jogosCasa5).toFixed(1)} | Sofridos: ${(c5.cantosCasa5[1]/c5.jogosCasa5).toFixed(1)}
   (FORA) ${c.jogosFora} jogos | Media: ${mediaFora.toFixed(1)} | Feitos: ${(c.cantosFora[0]/c.jogosFora).toFixed(1)} | Sofridos: ${(c.cantosFora[1]/c.jogosCasa).toFixed(1)}
-  (FORA) ${c5.jogosFora5} jogos | Media: ${mediaFora5.toFixed(1)} | Feitos: ${(c5.cantosFora5[0]/c5.jogosFora5).toFixed(1)} | Sofridos: ${(c5.cantosFora5[1]/c5.jogosCasa5).toFixed(1)}`  
+  (FORA) ${c5.jogosFora5} jogos | Media: ${mediaFora5.toFixed(1)} | Feitos: ${(c5.cantosFora5[0]/c5.jogosFora5).toFixed(1)} | Sofridos: ${(c5.cantosFora5[1]/c5.jogosCasa5).toFixed(1)}  `
   )
 }
 

@@ -1,12 +1,15 @@
 require('dotenv').config()
 const fs = require('fs')
-const args = process.argv.slice(2)
-const quantidade = args[0]
-const referencias = args[1]
 
-function getTeam(quantidade, nomeJson, chave){
+const envs = require('./env')
+const amount = envs.amountSession
+const args = process.argv.slice(2)
+
+const teamName = args[0]
+
+function getTeam(amount, nomeJson, chave){
   let dados = []
-  for (let index = 1; index <= quantidade; index++) {
+  for (let index = 1; index <= amount; index++) {
     let data = require(`../data/${nomeJson}${index}.json`)    
     data[chave].forEach(e => dados.push(e))
   }
@@ -16,21 +19,20 @@ function getTeam(quantidade, nomeJson, chave){
 
 
 function merge(){
-  const ref = require(`./referencias/${referencias}.json`)
-  const times = Array.from(Object.entries(ref.team))
-  times.forEach(e => {
-    const nomeJson = e[0] 
-    const home = getTeam( quantidade, nomeJson, 'home')
-    const away = getTeam( quantidade, nomeJson, 'away')
-    const scores = getTeam( quantidade, nomeJson, 'scores')
-    const corners = getTeam( quantidade, nomeJson, 'corners')
-    const date = getTeam( quantidade, nomeJson, 'date')
-    const odds = getTeam( quantidade, nomeJson, 'odds')    
-    fs.writeFile(`${__dirname}/../import/${nomeJson}.json`, JSON.stringify({home: home, away: away, scores: scores, corners: corners, date: date, odds: odds}, null, 2), err => {
+  
+  for (let index = 0; index < envs.amountSession; index++) {
+    const home = getTeam( amount, teamName, 'home')
+    const away = getTeam( amount, teamName, 'away')
+    const scores = getTeam( amount, teamName, 'scores')
+    const corners = getTeam( amount, teamName, 'corners')
+    const date = getTeam( amount, teamName, 'date')
+    const odds = getTeam( amount, teamName, 'odds')    
+    fs.writeFile(`${__dirname}/../import/${teamName}.json`, JSON.stringify({team: teamName, home,  away,  scores,  corners,  date, odds}, null, 2), err => {
       if(err) throw new Error(err)
-      console.log(`Generated JSON: import/${nomeJson}.json`);    
     })    
-  })
+  }    
+  console.log(`Generated JSON: import/${teamName}.json`);    
+  
 }
 merge()
 

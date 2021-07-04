@@ -1,8 +1,8 @@
 const args = process.argv.slice(2)
 const teamName = args[0]
 
-const data = require(`../../../${teamName}`)
-const TEAM = teamName.replace('-', ' ').replace('.json','').replace('import/','')
+const data = require(`../../../import/${teamName}.json`)
+const TEAM = teamName.replace('.', ' ')
 
 const odds = data.odds.map( e => e.split('/').map( e => parseFloat(e)))
 const scores = data.scores.map( e => e.split(':').map( e => parseInt(e)))
@@ -19,7 +19,7 @@ let cornersHT = []
 corners.forEach( (e, i) => { i%2 === 0 ? cornersHT.push(e) : cornersFT.push(e) })
 
 function getCantos(){
-  const jogosCasa = home.map( team => team === TEAM).filter(e => e).length
+  const jogosCasa = home.map( team => team === TEAM).filter(e => e).length  
   const jogosFora = home.map( team => team !== TEAM).filter(e => e).length
   let cantosCasa = [0, 0]
   let cantosFora = [0, 0]
@@ -30,11 +30,14 @@ function getCantos(){
     e !== TEAM ? cantosFora[1]+=cornersFT[i][1] : 0
   })
 
+  console.log(jogosCasa, jogosFora,
+    cantosCasa, cantosFora);
   return {
     jogosCasa, jogosFora,
     cantosCasa, cantosFora
   }
 }
+getCantos()
 
 function getCantosLast5(){
   const jogosCasa5 = home.map( team => team === TEAM).filter(e => e).length
